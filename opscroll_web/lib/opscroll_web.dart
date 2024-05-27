@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -259,15 +260,13 @@ class _OpscrollWebState extends State<OpscrollWeb>
           },
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
             child: Opacity(
               opacity: isFading ? 1 - animationController!.value : 1,
               child: Stack(
                 children: [
-                  PageView(
+                  ListView(
                     controller: pageController,
                     scrollDirection: widget.scrollDirection,
-                    allowImplicitScrolling: true,
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     physics: const NeverScrollableScrollPhysics(),
                     children: widget.onePageChildren
